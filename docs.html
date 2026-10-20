@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TailWatcher Docs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The TailWatcher user guide: getting started, connecting phones, text commands, trips, sharing, settings and troubleshooting.">
+<meta name="theme-color" content="#061024">
+
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://tailwatcher.org/docs.html">
+<meta property="og:title" content="TailWatcher Docs">
+<meta property="og:description" content="The TailWatcher user guide: getting started, connecting phones, text commands, trips, sharing, settings and troubleshooting.">
+<meta property="og:image" content="https://tailwatcher.org/assets/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.6c.9 0 1.5 1 1.5 2.2v5.5l8 4.5v2.1l-8-2.4v4.6l2.4 1.8v1.8L12 20.6l-3.9 1.1v-1.8l2.4-1.8v-4.6l-8 2.4v-2.1l8-4.5V3.8c0-1.2.6-2.2 1.5-2.2z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></g></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2.5"/><path d="M9 7V5.2A1.2 1.2 0 0 1 10.2 4h3.6A1.2 1.2 0 0 1 15 5.2V7M9 7v12M15 7v12"/></g></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13l-3-3M20 15H7l3 3"/></g></symbol>
+    <symbol id="i-chain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.6-3.3 3-5 6-5s5.4 1.7 6 5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 14.6c2.3.2 4 1.7 4.5 4.4"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></g></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="5" height="7" rx="1"/><rect x="9.5" y="5" width="5" height="7" rx="1"/><rect x="16" y="5" width="5" height="7" rx="1"/><path d="M3 8.5h18M4 16h16M4 19h10" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-invite" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></g></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="7" rx="1.8"/><rect x="4" y="13" width="16" height="7" rx="1.8"/><path d="M8 7.5h.01M8 16.5h.01M12 7.5h5M12 16.5h5"/></g></symbol>
+    <symbol id="i-antenna" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12l-4 9M12 12l4 9M9.2 18h5.6"/><circle cx="12" cy="10" r="1.8"/><path d="M8.2 6.2a5.4 5.4 0 0 0 0 7.6M15.8 6.2a5.4 5.4 0 0 1 0 7.6M5.5 3.5a9.2 9.2 0 0 0 0 13M18.5 3.5a9.2 9.2 0 0 1 0 13"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10M8 9.5l4 4 4-4"/><path d="M4 14v4.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V14"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 11.2 19.6 4.1c.8-.3 1.5.4 1.2 1.2L13.8 21.4c-.3.8-1.5.8-1.8 0l-2.2-6.2-6.2-2.2c-.8-.3-.8-1.5-.1-1.8z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8a10.2 10.2 0 0 0-3.2 19.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.9-.3 2.8 1a9.6 9.6 0 0 1 5.1 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.2 10.2 0 0 0 12 1.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15.5H5.5A1.5 1.5 0 0 0 4 21z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15.5h5.5A1.5 1.5 0 0 1 20 21z"/></g></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7.5" width="10" height="12" rx="5"/><path d="M9 7.5a3 3 0 0 1 6 0M12 11v8.5M3.5 13H7M17 13h3.5M4.5 8.5 7 10M19.5 8.5 17 10M4.5 18.5 7 17M19.5 18.5 17 17"/></g></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></g></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="TailWatcher home"><img src="assets/logo.svg" alt="" width="38" height="38">TailWatcher</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg><use href="#i-menu"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="./#features">Features</a>
+      <a href="./#trips">Trips</a>
+      <a href="./#screens">Screens</a>
+      <a href="./#install">Install</a>
+      <a href="docs.html" aria-current="page">Docs</a>
+      <a href="changelog.html">Flight log</a>
+      <a class="nav-gh" href="https://github.com/RogerUp-Labs/tailwatcher"><svg><use href="#i-github"/></svg>GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">User guide</span>
+    <h1>Docs</h1>
+    <p class="lede">Everything about setting up TailWatcher, watching planes, trips, sharing and troubleshooting. It's the same guide as the ? Help button in the app.</p>
+    <div class="docs-search"><svg aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="q" placeholder="Search the guide, e.g. iphone, renumbered, share" aria-label="Search the guide" autocomplete="off"></div>
+  </div>
+</section>
+<div class="wrap docs">
+  <nav class="toc" id="toc" aria-label="Guide topics"><div class="toc-title">On this page</div></nav>
+  <article class="guide" id="guide" aria-live="polite"><p class="empty">Loading the guide…</p></article>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="30" height="30">TailWatcher</a>
+      <small>MIT License · Made by <a href="https://rogeruplabs.com">RogerUp Labs</a> · <a href="mailto:hello@rogeruplabs.com">hello@rogeruplabs.com</a></small>
+    </div>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Flight log</a>
+      <a href="https://github.com/RogerUp-Labs/tailwatcher">GitHub</a>
+      <a href="https://github.com/RogerUp-Labs/tailwatcher/blob/main/LICENSE">License</a>
+    </nav>
+  </div>
+</footer>
+<script src="assets/docs.js"></script>
+<script>
+(() => {
+  const m = document.querySelector(".menu-btn"), l = document.getElementById("nav-links");
+  if (m && l) m.addEventListener("click", () => m.setAttribute("aria-expanded", String(l.classList.toggle("open"))));
+})();
+</script>
+</body>
+</html>

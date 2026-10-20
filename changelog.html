@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TailWatcher Flight Log</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Every TailWatcher release, newest first: round trips, sharing, the Board theme, invite links and more.">
+<meta name="theme-color" content="#061024">
+
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://tailwatcher.org/changelog.html">
+<meta property="og:title" content="TailWatcher Flight Log">
+<meta property="og:description" content="Every TailWatcher release, newest first: round trips, sharing, the Board theme, invite links and more.">
+<meta property="og:image" content="https://tailwatcher.org/assets/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.6c.9 0 1.5 1 1.5 2.2v5.5l8 4.5v2.1l-8-2.4v4.6l2.4 1.8v1.8L12 20.6l-3.9 1.1v-1.8l2.4-1.8v-4.6l-8 2.4v-2.1l8-4.5V3.8c0-1.2.6-2.2 1.5-2.2z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></g></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2.5"/><path d="M9 7V5.2A1.2 1.2 0 0 1 10.2 4h3.6A1.2 1.2 0 0 1 15 5.2V7M9 7v12M15 7v12"/></g></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13l-3-3M20 15H7l3 3"/></g></symbol>
+    <symbol id="i-chain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.6-3.3 3-5 6-5s5.4 1.7 6 5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 14.6c2.3.2 4 1.7 4.5 4.4"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></g></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="5" height="7" rx="1"/><rect x="9.5" y="5" width="5" height="7" rx="1"/><rect x="16" y="5" width="5" height="7" rx="1"/><path d="M3 8.5h18M4 16h16M4 19h10" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-invite" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></g></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="7" rx="1.8"/><rect x="4" y="13" width="16" height="7" rx="1.8"/><path d="M8 7.5h.01M8 16.5h.01M12 7.5h5M12 16.5h5"/></g></symbol>
+    <symbol id="i-antenna" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12l-4 9M12 12l4 9M9.2 18h5.6"/><circle cx="12" cy="10" r="1.8"/><path d="M8.2 6.2a5.4 5.4 0 0 0 0 7.6M15.8 6.2a5.4 5.4 0 0 1 0 7.6M5.5 3.5a9.2 9.2 0 0 0 0 13M18.5 3.5a9.2 9.2 0 0 1 0 13"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10M8 9.5l4 4 4-4"/><path d="M4 14v4.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V14"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 11.2 19.6 4.1c.8-.3 1.5.4 1.2 1.2L13.8 21.4c-.3.8-1.5.8-1.8 0l-2.2-6.2-6.2-2.2c-.8-.3-.8-1.5-.1-1.8z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8a10.2 10.2 0 0 0-3.2 19.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.9-.3 2.8 1a9.6 9.6 0 0 1 5.1 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.2 10.2 0 0 0 12 1.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15.5H5.5A1.5 1.5 0 0 0 4 21z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15.5h5.5A1.5 1.5 0 0 1 20 21z"/></g></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7.5" width="10" height="12" rx="5"/><path d="M9 7.5a3 3 0 0 1 6 0M12 11v8.5M3.5 13H7M17 13h3.5M4.5 8.5 7 10M19.5 8.5 17 10M4.5 18.5 7 17M19.5 18.5 17 17"/></g></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></g></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="TailWatcher home"><img src="assets/logo.svg" alt="" width="38" height="38">TailWatcher</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg><use href="#i-menu"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="./#features">Features</a>
+      <a href="./#trips">Trips</a>
+      <a href="./#screens">Screens</a>
+      <a href="./#install">Install</a>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html" aria-current="page">Flight log</a>
+      <a class="nav-gh" href="https://github.com/RogerUp-Labs/tailwatcher"><svg><use href="#i-github"/></svg>GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Releases</span>
+    <h1>Flight log</h1>
+    <p class="lede">Every TailWatcher release, newest first, in the same plain language as the StartOS release notes.</p>
+    <div class="legend"><span><i style="background:var(--green)"></i>Current release</span><span><i style="background:var(--glow)"></i>Built and being field-tested, not released yet</span><span><i style="background:#7d8290"></i>Earlier release</span></div>
+  </div>
+</section>
+<div class="wrap log">
+  <ol class="log-list" reversed>
+  <li class="log-row next" id="v0.18.0">
+    <span class="flaps" aria-label="0.18.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">8</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Import a trip</h2><p>Tap Import next to + Add trip and paste your booking confirmation, or choose a saved email (.eml) or calendar file (.ics). TailWatcher finds the flights, connections and flight home and fills in the Add trip form for you to check. It reads the hidden flight details in airline confirmation emails, calendar events from TripIt or Kayak, and plain text, and uses none of your AeroDataBox requests.</p></div>
+    <div class="st"><span class="flaps" aria-label="IN TEST"><span class="flap o" aria-hidden="true">I</span><span class="flap o" aria-hidden="true">N</span><span class="flap o" aria-hidden="true">&nbsp;</span><span class="flap o" aria-hidden="true">T</span><span class="flap o" aria-hidden="true">E</span><span class="flap o" aria-hidden="true">S</span><span class="flap o" aria-hidden="true">T</span></span></div>
+  </li>
+  <li class="log-row next" id="v0.17.0">
+    <span class="flaps" aria-label="0.17.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">7</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Connecting flights and stops</h2><p>Add a connection with then (inbound UA1234 then UA567), connect 1 UA567, or the Connecting flight row on + Add trip. On the day, TailWatcher follows your first flight, tells you how many minutes you&#x27;ll have to make the next one, and warns when that gets tight. Flights with a stop under one flight number work too.</p></div>
+    <div class="st"><span class="flaps" aria-label="IN TEST"><span class="flap o" aria-hidden="true">I</span><span class="flap o" aria-hidden="true">N</span><span class="flap o" aria-hidden="true">&nbsp;</span><span class="flap o" aria-hidden="true">T</span><span class="flap o" aria-hidden="true">E</span><span class="flap o" aria-hidden="true">S</span><span class="flap o" aria-hidden="true">T</span></span></div>
+  </li>
+  <li class="log-row next" id="v0.16.2">
+    <span class="flaps" aria-label="0.16.2"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">6</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Where is it now</h2><p>Each aircraft on the dashboard shows its approximate location next to Live map, like “near Denver, CO” or “40 nm NE of Denver, CO”, and “at” the airport when it&#x27;s on the ground. A plane that has gone quiet shows where it was last seen.</p></div>
+    <div class="st"><span class="flaps" aria-label="IN TEST"><span class="flap o" aria-hidden="true">I</span><span class="flap o" aria-hidden="true">N</span><span class="flap o" aria-hidden="true">&nbsp;</span><span class="flap o" aria-hidden="true">T</span><span class="flap o" aria-hidden="true">E</span><span class="flap o" aria-hidden="true">S</span><span class="flap o" aria-hidden="true">T</span></span></div>
+  </li>
+  <li class="log-row next" id="v0.16.1">
+    <span class="flaps" aria-label="0.16.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">6</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Parked planes</h2><p>Once a plane has landed and stopped transmitting, the dashboard says Parked with when it was last seen, and the Live map link only shows while the plane is actually on the radar.</p></div>
+    <div class="st"><span class="flaps" aria-label="IN TEST"><span class="flap o" aria-hidden="true">I</span><span class="flap o" aria-hidden="true">N</span><span class="flap o" aria-hidden="true">&nbsp;</span><span class="flap o" aria-hidden="true">T</span><span class="flap o" aria-hidden="true">E</span><span class="flap o" aria-hidden="true">S</span><span class="flap o" aria-hidden="true">T</span></span></div>
+  </li>
+  <li class="log-row" id="v0.16.0">
+    <span class="flaps" aria-label="0.16.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">6</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 19</span>
+    <div class="body"><h2>Round trips</h2><p>Enter your flight out and your flight home in one go, by text (inbound UA1234 11/14 return UA5678 11/21) or with the Return flight row on + Add trip. Both flights are listed together, sharing covers both with a single note to family, and cancelling covers both unless you say only. Typed times are read in the departure airport&#x27;s own time zone.</p></div>
+    <div class="st"><span class="flaps" aria-label="CURRENT"><span class="flap g" aria-hidden="true">C</span><span class="flap g" aria-hidden="true">U</span><span class="flap g" aria-hidden="true">R</span><span class="flap g" aria-hidden="true">R</span><span class="flap g" aria-hidden="true">E</span><span class="flap g" aria-hidden="true">N</span><span class="flap g" aria-hidden="true">T</span></span></div>
+  </li>
+  <li class="log-row" id="v0.15.0">
+    <span class="flaps" aria-label="0.15.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">5</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Invite links</h2><p>Connect phone can create a normal web link to text, iMessage or Signal to someone anywhere. It opens a simple page that walks them through installing ntfy and subscribing in two taps. Invites expire after the days you choose and can be cancelled.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.14.0">
+    <span class="flaps" aria-label="0.14.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">4</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>A searchable guide in the app</h2><p>? Help opens a searchable guide with topics for getting started, connecting phones, text commands, trips, sharing, settings and troubleshooting, plus a short page to send to family. Editing a watcher can now give them a new topic.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.13.0">
+    <span class="flaps" aria-label="0.13.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">3</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Settings in the Web UI</h2><p>Pick the notification server, AeroDataBox key, feed, check interval, time zone, map buttons and page password from the dashboard. Set up NTFY for me configures this server&#x27;s NTFY in one step with its admin password, used once and never saved.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.12.0">
+    <span class="flaps" aria-label="0.12.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Much easier setup</h2><p>Alerts can go through the public ntfy.sh service, so new installs need no NTFY package, users or tokens. TailWatcher picks an unguessable topic for each watcher, and Connect phone gives a one-tap subscribe link.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.11.0">
+    <span class="flaps" aria-label="0.11.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>One request per cycle</h2><p>All watched aircraft, trip planes and shared flights are checked together in one batched request instead of one each. If a feed answers “too many requests”, TailWatcher uses the other one. adsb.fi becomes the default feed.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.10.0">
+    <span class="flaps" aria-label="0.10.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Share a trip with family</h2><p>Tick Share with on the trip form, or text share 1 Mom &amp; Dad. They get a note when you share, a heads-up if the time changes or the flight disappears, and departure and landing alerts on the day.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.9.0">
+    <span class="flaps" aria-label="0.9.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">9</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Edit from the Web UI</h2><p>Add, edit and remove watchers, their aircraft and flights, and trips, right on the dashboard. Trips added on the page get the same lookups and alerts as the inbound text command.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.8.2">
+    <span class="flaps" aria-label="0.8.2"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">8</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>The Board theme</h2><p>An airport departures board for the Web UI: trips and watched aircraft sit on split-flap tiles that flip when a status changes. Each browser remembers its choice.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.8.1">
+    <span class="flaps" aria-label="0.8.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">8</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>No password by default</h2><p>The Web UI opens without a password, since it&#x27;s a household panel reachable on your network and VPN. Turn on Require Web UI Password if you want one.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.8.0">
+    <span class="flaps" aria-label="0.8.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">8</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>The Web UI</h2><p>A dashboard of your trips, every watcher&#x27;s aircraft with what&#x27;s airborne now, recent alerts and text commands, and system status.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.7.0">
+    <span class="flaps" aria-label="0.7.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">7</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Manage trips by text</h2><p>trips numbers them, change 1 AA5678 updates one, and cancel 1 removes it. If the airline renumbers or cancels a flight, TailWatcher notices and suggests the likely new flight number for you to confirm. Checks scale with distance to save AeroDataBox requests.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.6.1">
+    <span class="flaps" aria-label="0.6.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">6</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Far-off trips</h2><p>Trips added well ahead stay until their date even before AeroDataBox has a schedule for them, and are checked once a day instead of every 6 hours.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.6.0">
+    <span class="flaps" aria-label="0.6.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">6</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 18</span>
+    <div class="body"><h2>Where&#x27;s my plane?</h2><p>inbound UA1234 N38473 dep 4:30pm follows the plane flying in for your flight: when it takes off toward you, if its arrival gets close to your departure, and when it lands. With a free AeroDataBox key, inbound UA1234 finds the plane and time on its own.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.5.1">
+    <span class="flaps" aria-label="0.5.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">5</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 17</span>
+    <div class="body"><h2>NTFY setup fix</h2><p>Text commands need a regular NTFY user&#x27;s token, because NTFY&#x27;s publisher accounts can&#x27;t be given read access. The setup instructions and health messages now say so.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.5.0">
+    <span class="flaps" aria-label="0.5.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">5</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 17</span>
+    <div class="body"><h2>Aircraft lookup</h2><p>info N12345 tells you what a plane is, who owns it (from the FAA registry for US aircraft), where it is right now, any military or privacy flags, and shows a photo from planespotters.net.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.4.0">
+    <span class="flaps" aria-label="0.4.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">4</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 17</span>
+    <div class="body"><h2>Flight numbers</h2><p>Watch an airline flight as well as a tail number, and the alert names the aircraft flying it. Entries can expire on their own: UA1234 for 2 days or UA1234 until fri.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.3.0">
+    <span class="flaps" aria-label="0.3.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">3</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 17</span>
+    <div class="body"><h2>Text commands</h2><p>Type in your NTFY topic to manage your list: send a tail number to add it, remove N12345 to drop it, and list to see what you watch and what&#x27;s airborne.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.2.0">
+    <span class="flaps" aria-label="0.2.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 17</span>
+    <div class="body"><h2>Watchers</h2><p>Each person gets their own topic and aircraft list, landing alerts and priority. A tail followed by several watchers is still checked once. Failed alerts are retried for 30 minutes.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.1.0">
+    <span class="flaps" aria-label="0.1.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">&nbsp;</span></span>
+    <span class="when">OCT 17</span>
+    <div class="body"><h2>First flight</h2><p>Watch tail numbers on adsb.lol or adsb.fi and get NTFY alerts on takeoff, and optionally landing, with links to ADS-B Exchange.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  </ol>
+  <p class="guide-src">Release history lives in <a href="https://github.com/RogerUp-Labs/tailwatcher/tree/main/startos/versions">startos/versions</a> in the repository.</p>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="30" height="30">TailWatcher</a>
+      <small>MIT License · Made by <a href="https://rogeruplabs.com">RogerUp Labs</a> · <a href="mailto:hello@rogeruplabs.com">hello@rogeruplabs.com</a></small>
+    </div>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Flight log</a>
+      <a href="https://github.com/RogerUp-Labs/tailwatcher">GitHub</a>
+      <a href="https://github.com/RogerUp-Labs/tailwatcher/blob/main/LICENSE">License</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const m = document.querySelector(".menu-btn"), l = document.getElementById("nav-links");
+  if (m && l) m.addEventListener("click", () => m.setAttribute("aria-expanded", String(l.classList.toggle("open"))));
+})();
+</script>
+</body>
+</html>
