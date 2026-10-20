@@ -2,56 +2,524 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TailWatcher</title>
-<meta name="description" content="TailWatcher is a free, open-source StartOS app that sends ntfy alerts when the planes or flights you watch take off and land.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="TailWatcher is a free, open-source StartOS app that sends a phone alert the moment a plane or flight you follow takes off, and tells you when the plane flying in for your trip is running late.">
+<meta name="theme-color" content="#061024">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<style>
-  :root {
-    --bg: #f5f8fc; --card: #ffffff; --ink: #0a1a33; --muted: #4a5d78;
-    --line: #dbe4f0; --accent: #1f5fa8; --badge: #c25a14; --chip: #ffeadb;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #0a1a33; --card: #10264a; --ink: #eef3fa; --muted: #9cb3d1;
-            --line: #1f3d68; --accent: #9cc8ff; --badge: #ff8a3d; --chip: #3a2a24; }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-         font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 56px 16px 40px; }
-  .icon { width: 112px; height: 112px; display: block; border-radius: 24px; box-shadow: 0 0 0 1px var(--line); }
-  h1 { font-size: clamp(32px, 8vw, 48px); line-height: 1.1; margin: 28px 0 8px; }
-  .tag { font-size: 20px; color: var(--muted); margin: 0 0 20px; }
-  .chip { display: inline-block; font-size: 14px; font-weight: 600; padding: 4px 12px;
-          border-radius: 99px; background: var(--chip); color: var(--badge); }
-  ul { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 12px; }
-  li { padding: 16px 18px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
-  li b { display: block; margin-bottom: 2px; }
-  li span { color: var(--muted); font-size: 15px; }
-  footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
-  footer a { color: var(--accent); }
-</style>
+<link rel="canonical" href="https://tailwatcher.org/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TailWatcher: takeoff alerts for the planes you follow">
+<meta property="og:description" content="Free, open-source and self-hosted on StartOS. Watch tail numbers and flights on free ADS-B feeds and get ntfy alerts on takeoff and landing.">
+<meta property="og:url" content="https://tailwatcher.org/">
+<meta property="og:image" content="https://tailwatcher.org/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<main>
-  <img class="icon" src="icon.svg" alt="TailWatcher icon">
-  <h1>TailWatcher</h1>
-  <p class="tag">A free, open-source app for your Start9 server that sends a phone alert when the planes or flights you watch take off and land.</p>
-  <span class="chip">Coming soon to the Start9 community store</span>
+<a class="skip" href="#main">Skip to content</a>
 
-  <ul>
-    <li><b>Watch a tail number or a flight</b><span>Follow a family plane by its N-number, or an airline flight like UA1234.</span></li>
-    <li><b>Alerts through ntfy</b><span>Takeoff (and optionally landing) notifications on your phone, with a link to the live track on ADS-B Exchange.</span></li>
-    <li><b>Runs on your own server</b><span>A StartOS app that uses free ADS-B feeds. No account and no subscription.</span></li>
-  </ul>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.6c.9 0 1.5 1 1.5 2.2v5.5l8 4.5v2.1l-8-2.4v4.6l2.4 1.8v1.8L12 20.6l-3.9 1.1v-1.8l2.4-1.8v-4.6l-8 2.4v-2.1l8-4.5V3.8c0-1.2.6-2.2 1.5-2.2z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></g></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="2.5"/><path d="M9 7V5.2A1.2 1.2 0 0 1 10.2 4h3.6A1.2 1.2 0 0 1 15 5.2V7M9 7v12M15 7v12"/></g></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13l-3-3M20 15H7l3 3"/></g></symbol>
+    <symbol id="i-chain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3 19.5c.6-3.3 3-5 6-5s5.4 1.7 6 5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16.5 14.6c2.3.2 4 1.7 4.5 4.4"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></g></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="5" height="7" rx="1"/><rect x="9.5" y="5" width="5" height="7" rx="1"/><rect x="16" y="5" width="5" height="7" rx="1"/><path d="M3 8.5h18M4 16h16M4 19h10" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-invite" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></g></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="7" rx="1.8"/><rect x="4" y="13" width="16" height="7" rx="1.8"/><path d="M8 7.5h.01M8 16.5h.01M12 7.5h5M12 16.5h5"/></g></symbol>
+    <symbol id="i-antenna" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12l-4 9M12 12l4 9M9.2 18h5.6"/><circle cx="12" cy="10" r="1.8"/><path d="M8.2 6.2a5.4 5.4 0 0 0 0 7.6M15.8 6.2a5.4 5.4 0 0 1 0 7.6M5.5 3.5a9.2 9.2 0 0 0 0 13M18.5 3.5a9.2 9.2 0 0 1 0 13"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10M8 9.5l4 4 4-4"/><path d="M4 14v4.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V14"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 11.2 19.6 4.1c.8-.3 1.5.4 1.2 1.2L13.8 21.4c-.3.8-1.5.8-1.8 0l-2.2-6.2-6.2-2.2c-.8-.3-.8-1.5-.1-1.8z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8a10.2 10.2 0 0 0-3.2 19.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.9-.3 2.8 1a9.6 9.6 0 0 1 5.1 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.2 10.2 0 0 0 12 1.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15.5H5.5A1.5 1.5 0 0 0 4 21z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v15.5h5.5A1.5 1.5 0 0 1 20 21z"/></g></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7.5" width="10" height="12" rx="5"/><path d="M9 7.5a3 3 0 0 1 6 0M12 11v8.5M3.5 13H7M17 13h3.5M4.5 8.5 7 10M19.5 8.5 17 10M4.5 18.5 7 17M19.5 18.5 17 17"/></g></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></g></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14M5 7l-2.5 6a2.5 2.5 0 0 0 5 0zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/></g></symbol>
+  </defs>
+</svg>
 
-  <footer>
-    Source code coming soon.
-    &nbsp;·&nbsp;
-    Made by <a href="https://rogeruplabs.com">RogerUp Labs</a>
-    &nbsp;·&nbsp;
-    <a href="mailto:hello@rogeruplabs.com">hello@rogeruplabs.com</a>
-  </footer>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="TailWatcher home"><img src="assets/logo.svg" alt="" width="38" height="38">TailWatcher</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg><use href="#i-menu"/></svg></button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#trips">Trips</a>
+      <a href="#screens">Screens</a>
+      <a href="#install">Install</a>
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Flight log</a>
+      <a class="nav-gh" href="https://github.com/RogerUp-Labs/tailwatcher"><svg><use href="#i-github"/></svg>GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <canvas class="stars" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-copy">
+      <svg class="hero-mark" viewBox="0 0 512 512" role="img" aria-label="TailWatcher logo">
+        <defs>
+          <linearGradient id="hm-sky" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0a1a33"/><stop offset="1" stop-color="#1f5fa8"/></linearGradient>
+          <radialGradient id="hm-glow"><stop offset="0" stop-color="#ffd2a8"/><stop offset=".55" stop-color="#ff8a3d"/><stop offset="1" stop-color="#e2611a"/></radialGradient>
+          <clipPath id="hm-tile"><rect width="512" height="512" rx="112"/></clipPath>
+        </defs>
+        <g clip-path="url(#hm-tile)">
+          <rect width="512" height="512" fill="url(#hm-sky)"/>
+          <g transform="translate(0 -33)">
+            <circle cx="256" cy="322" r="118" fill="#fff" fill-opacity=".08"/>
+            <path d="M100 196 L256 154 L412 196" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M256 154 L256 300" stroke="#fff" stroke-width="34" stroke-linecap="round"/>
+            <path d="M150 262 L196 424 L256 300 L316 424 L362 262" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="110" cy="300" r="42" fill="#fff"/><circle class="engine" cx="110" cy="300" r="27" fill="url(#hm-glow)"/>
+            <circle cx="402" cy="300" r="42" fill="#fff"/><circle class="engine" cx="402" cy="300" r="27" fill="url(#hm-glow)"/>
+          </g>
+        </g>
+      </svg>
+      <span class="eyebrow">Free &amp; open source · for StartOS</span>
+      <h1 id="hero-title" style="margin-top:16px">Know the moment they're <span class="hot">wheels up.</span></h1>
+      <p class="lede">TailWatcher follows the planes and flights your household cares about on free, public ADS-B data, and pings everyone's phone through the ntfy app the moment one takes off. It also keeps an eye on the plane flying in for your next trip, so you hear it's running late before the gate agent tells you.</p>
+      <div class="cta-row">
+        <a class="btn btn-hot" href="#install"><svg><use href="#i-plane"/></svg>Install on StartOS</a>
+        <a class="btn btn-ghost" href="https://github.com/RogerUp-Labs/tailwatcher"><svg><use href="#i-github"/></svg>View the source</a>
+      </div>
+      <ul class="hero-facts" aria-label="At a glance">
+        <li>MIT licensed</li><li>No accounts</li><li>No subscription</li><li>Runs on your own server</li>
+      </ul>
+    </div>
+
+    <div class="scope" aria-label="Example: alerts arriving on a phone">
+      <div class="radar" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#9cc8ff">
+          <circle cx="50" cy="50" r="17" stroke-opacity=".22" stroke-width=".4"/>
+          <circle cx="50" cy="50" r="33" stroke-opacity=".18" stroke-width=".4"/>
+          <circle cx="50" cy="50" r="49.6" stroke-opacity=".3" stroke-width=".5"/>
+          <path d="M50 0v100M0 50h100" stroke-opacity=".1" stroke-width=".3"/>
+          <path d="M14.6 14.6l70.8 70.8M85.4 14.6 14.6 85.4" stroke-opacity=".06" stroke-width=".3"/>
+        </svg>
+        <div class="sweep"></div>
+        <i class="blip" style="left:22%;top:30%;animation-delay:.2s"><span>N731RG</span></i>
+        <i class="blip" style="left:80%;top:24%;animation-delay:1.4s"><span>DL89 · FL360</span></i>
+        <i class="blip" style="left:84%;top:76%;animation-delay:2.6s"><span>WN1801</span></i>
+        <i class="blip" style="left:14%;top:72%;animation-delay:3.5s"><span>N38473</span></i>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div class="phone-time" id="phone-time">12:00</div>
+          <div class="phone-date" id="phone-date">Tuesday, October 20</div>
+          <div class="stack" id="notifs" aria-live="off"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="runway" aria-hidden="true">
+    <div class="jet">
+      <i class="trail"></i>
+      <svg viewBox="0 0 120 40"><path fill="#eef3fa" d="M6 22c0-2.4 2-4 5-4h70l14-14h9l-7 14h12c5 0 9 1.6 9 4s-4 4-9 4H11c-3 0-5-1.6-5-4z"/><path fill="#9cc8ff" d="M44 24l22 0-14 12h-8l4-12z"/><circle cx="101" cy="22" r="2.2" fill="#ff8a3d"/><path fill="#0b1d3a" d="M20 20h3v2h-3zM27 20h3v2h-3zM34 20h3v2h-3zM41 20h3v2h-3zM48 20h3v2h-3zM55 20h3v2h-3zM62 20h3v2h-3zM69 20h3v2h-3z" opacity=".55"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPARTURES BOARD ================= -->
+<section class="band board-band" aria-labelledby="board-title">
+  <div class="wrap">
+    <div class="board" id="board">
+      <div class="board-top">
+        <h2 class="board-title" id="board-title"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plane" style="color:var(--amber)"/></svg>Departures</h2>
+        <div class="board-clock">LOCAL <b id="board-clock">12:00</b> · SAMPLE DATA</div>
+      </div>
+      <div class="board-scroll">
+        <div class="board-grid" id="board-grid" role="table" aria-label="Example TailWatcher departures board">
+          <!-- filled by site.js; this static copy is what shows without JavaScript -->
+          <span class="h c-time" role="columnheader">Time</span><span class="h" role="columnheader">Flight</span><span class="h c-plane" role="columnheader">Plane</span><span class="h c-to" role="columnheader">To</span><span class="h" role="columnheader">Remarks</span><span class="h c-note" role="columnheader">What TailWatcher is doing</span>
+        </div>
+      </div>
+      <div class="board-foot">
+        <span>Board theme · split-flap tiles flip only when a status changes</span>
+        <a href="#screens">See the real dashboard →</a>
+      </div>
+    </div>
+    <div class="board-caption">
+      <p><b>Tail numbers</b>Follow one specific aircraft, like a friend's Cessna or the club's Piper, by its registration.</p>
+      <p><b>Flight numbers</b>Follow whichever plane the airline puts on UA1234 today. The alert names it: "UA1234 (N38473) departed".</p>
+      <p><b>Your trips</b>Follow the plane coming to pick you up, and hear early if it's going to make you late.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="band" id="features" aria-labelledby="features-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Features</span>
+      <h2 class="h2" id="features-title">Everything on board</h2>
+      <p class="lede">TailWatcher started as "tell me when Dad's plane takes off". It now handles the whole trip, for everyone in the house, from one small app on your Start9.</p>
+    </div>
+
+    <div class="passes">
+      <article class="pass">
+        <div class="pass-head"><span>Boarding pass · Watch</span><img src="assets/logo.svg" alt=""></div>
+        <div class="pass-body">
+          <div class="route"><div class="code">GND<small>on the ground</small></div><div class="path"><svg><use href="#i-plane"/></svg></div><div class="code">AIR<small>alert sent</small></div></div>
+          <h3>Takeoff and landing alerts</h3>
+          <p>Send <code>N12345</code> or <code>UA1234</code> and TailWatcher checks it every minute. Each alert gives the nearest airport, altitude, speed and heading, and opens the plane on a live map when tapped.</p>
+        </div>
+        <div class="pass-stub"><div>Feed<b>adsb.fi</b></div><div>Checks<b>60 s</b></div><div class="hot">Alert<b>Wheels up</b></div></div>
+      </article>
+
+      <article class="pass">
+        <div class="pass-head"><span>Boarding pass · Trips</span><img src="assets/logo.svg" alt=""></div>
+        <div class="pass-body">
+          <div class="route"><div class="code">ORD<small>your plane</small></div><div class="path"><svg><use href="#i-plane"/></svg></div><div class="code">IAD<small>your gate</small></div></div>
+          <h3>Where's my plane?</h3>
+          <p>Your flight's plane is usually still finishing an earlier flight somewhere else. TailWatcher follows it in and warns you when it will land within 45, then 20, minutes of your departure.</p>
+        </div>
+        <div class="pass-stub"><div>Flight<b>UA1234</b></div><div>Plane<b>N38473</b></div><div class="hot">Status<b>On its way</b></div></div>
+      </article>
+
+      <article class="pass">
+        <div class="pass-head"><span>Boarding pass · Share</span><img src="assets/logo.svg" alt=""></div>
+        <div class="pass-body">
+          <div class="route"><div class="code">YOU<small>flying</small></div><div class="path"><svg><use href="#i-plane"/></svg></div><div class="code">FAM<small>notified</small></div></div>
+          <h3>Family in the loop</h3>
+          <p>Share a trip with <code>share 1 Mom &amp; Dad</code> and they get one note, then your departure and landing on the day. No app to learn: they tap one invite link to subscribe.</p>
+        </div>
+        <div class="pass-stub"><div>Shared<b>2 people</b></div><div>Legs<b>Out + back</b></div><div class="hot">Alert<b>Landed</b></div></div>
+      </article>
+    </div>
+
+    <div class="also">
+      <h3>Also on board</h3>
+      <div class="feat-grid">
+        <div class="feat"><div class="ic"><svg><use href="#i-loop"/></svg></div><div><h4>Round trips</h4><p>Enter the flight out and the flight home in one go: <code>inbound UA1234 11/14 return UA5678 11/21</code>.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-chain"/></svg></div><div><h4>Connecting flights <span class="tag-new">Soon</span></h4><p>Add a connection with <code>then</code> and hear how many minutes you'll have to make it.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-import"/></svg></div><div><h4>Import a trip <span class="tag-new">Soon</span></h4><p>Paste a booking confirmation, or drop in an .eml or .ics file, and the trip form fills itself in.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-chat"/></svg></div><div><h4>Text commands</h4><p>Everyone manages their own list by typing in their ntfy topic: <code>N12345</code>, <code>list</code>, <code>remove</code>.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-search"/></svg></div><div><h4>Look up any plane</h4><p><code>info N12345</code> replies with the type, FAA owner city and state, engine, live position and a photo.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-board"/></svg></div><div><h4>Dashboard, two looks</h4><p>A web dashboard for the whole house, in a clean Modern theme or a split-flap departures Board.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><h4>Where is it now <span class="tag-new">Soon</span></h4><p>Each plane shows roughly where it is, like "40 nm NE of Denver, CO", or Parked once it goes quiet.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-invite"/></svg></div><div><h4>Invite links</h4><p>Text someone a normal web link. It walks them through installing ntfy and subscribing in two taps.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-clock"/></svg></div><div><h4>Renumbered flights</h4><p>When an airline renumbers or cancels your flight, TailWatcher notices and suggests the likely new number.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-people"/></svg></div><div><h4>One app, whole household</h4><p>Each person gets their own watcher, alert list, landing setting and priority. A plane two people follow is checked once.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-antenna"/></svg></div><div><h4>Free, unfiltered ADS-B</h4><p>Community feeds adsb.fi and adsb.lol, polled in one batched request per cycle, with automatic fallback.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-server"/></svg></div><div><h4>Your server, your alerts</h4><p>Use public ntfy.sh with zero setup, or keep every alert on your own hardware with StartOS's NTFY.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="band" id="how" aria-labelledby="how-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h2" id="how-title">Your flight plan</h2>
+      <p class="lede">Four waypoints from install to the first alert. Most people are done in about five minutes.</p>
+    </div>
+    <ol class="plan">
+      <li>
+        <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#0b1d3a" stroke="#9cc8ff" stroke-width="2"/></svg><b>1</b></div>
+        <div><span class="ident">WPT INSTL</span><h3>Install on StartOS</h3><p>Add TailWatcher to your Start9 server. It needs nothing else: no NTFY package, account or token.</p></div>
+      </li>
+      <li>
+        <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#0b1d3a" stroke="#9cc8ff" stroke-width="2"/></svg><b>2</b></div>
+        <div><span class="ident">WPT WATCH</span><h3>Add a watcher</h3><p>Open the dashboard and tap <b>+ Add watcher</b> for each person who wants alerts. A name is all it needs.</p></div>
+      </li>
+      <li>
+        <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#0b1d3a" stroke="#9cc8ff" stroke-width="2"/></svg><b>3</b></div>
+        <div><span class="ident">WPT PHONE</span><h3>Connect their phone</h3><p><b>Connect phone</b> makes a one-tap subscribe link for the free ntfy app. Text it to them, wherever they are.</p></div>
+      </li>
+      <li>
+        <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#ff8a3d" stroke="#ffd2a8" stroke-width="2"/></svg><b>4</b></div>
+        <div><span class="ident">WPT WHEELS</span><h3>Wheels up</h3><p>Add a tail or flight number, from the dashboard or by texting it. The next takeoff lands on their lock screen.</p></div>
+      </li>
+    </ol>
+
+    <figure class="signal" aria-labelledby="signal-title">
+      <div class="signal-head">
+        <h3 id="signal-title">Signal path</h3>
+        <p>Every minute, one batched request covers every plane anyone is watching.</p>
+      </div>
+      <div class="signal-scroll">
+        <svg viewBox="0 0 1000 190" role="img" aria-label="Aircraft broadcast ADS-B, volunteer receivers feed adsb.fi and adsb.lol, TailWatcher on your Start9 polls them, and sends alerts through ntfy to phones.">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#6c819f"/></marker>
+          </defs>
+          <g fill="none" stroke-width="2">
+            <path d="M150 95H224" stroke="#2c4a75" marker-end="url(#arr)"/>
+            <path d="M388 95H462" stroke="#2c4a75" marker-end="url(#arr)"/>
+            <path d="M622 95H696" stroke="#2c4a75" marker-end="url(#arr)"/>
+            <path d="M844 95H902" stroke="#2c4a75" marker-end="url(#arr)"/>
+            <path class="pkt" d="M150 95H224M388 95H462M622 95H696M844 95H902" stroke="#ff8a3d" stroke-dasharray="6 90"/>
+          </g>
+          <!-- aircraft -->
+          <g transform="translate(75 70)">
+            <circle r="44" cx="0" cy="25" fill="#12305c" stroke="#9cc8ff" stroke-opacity=".35"/>
+            <use href="#i-plane" x="-18" y="7" width="36" height="36" style="color:#eef3fa"/>
+          </g>
+          <text class="lbl" x="75" y="164" text-anchor="middle">Aircraft</text>
+          <text class="sub" x="75" y="182" text-anchor="middle">ADS-B transponder</text>
+          <!-- feeds -->
+          <rect x="230" y="51" width="154" height="88" rx="14" fill="#0b1d3a" stroke="#9cc8ff" stroke-opacity=".35"/>
+          <use href="#i-antenna" x="289" y="62" width="36" height="36" style="color:#9cc8ff"/>
+          <text class="sub" x="307" y="122" text-anchor="middle">adsb.fi · adsb.lol</text>
+          <text class="lbl" x="307" y="164" text-anchor="middle">Volunteer feeds</text>
+          <text class="sub" x="307" y="182" text-anchor="middle">free, unfiltered</text>
+          <!-- tailwatcher -->
+          <rect x="470" y="36" width="146" height="118" rx="18" fill="#12305c" stroke="#ff8a3d" stroke-opacity=".7" stroke-width="2"/>
+          <image href="assets/logo.svg" x="510" y="50" width="66" height="66"/>
+          <text class="sub" x="543" y="138" text-anchor="middle" style="fill:#ffd2a8">every 60 s</text>
+          <text class="lbl" x="543" y="176" text-anchor="middle">TailWatcher</text>
+          <!-- ntfy -->
+          <rect x="702" y="51" width="138" height="88" rx="14" fill="#0b1d3a" stroke="#9cc8ff" stroke-opacity=".35"/>
+          <use href="#i-bell" x="753" y="62" width="36" height="36" style="color:#9cc8ff"/>
+          <text class="sub" x="771" y="122" text-anchor="middle">ntfy.sh or yours</text>
+          <text class="lbl" x="771" y="164" text-anchor="middle">ntfy</text>
+          <text class="sub" x="771" y="182" text-anchor="middle">push service</text>
+          <!-- phones -->
+          <rect x="910" y="44" width="56" height="100" rx="12" fill="#05080f" stroke="#9cc8ff" stroke-opacity=".5"/>
+          <rect x="917" y="62" width="42" height="14" rx="4" fill="#317f6f"/>
+          <rect x="917" y="81" width="42" height="14" rx="4" fill="#2b4f86"/>
+          <text class="lbl" x="938" y="164" text-anchor="middle">Phones</text>
+          <text class="sub" x="938" y="182" text-anchor="middle">iOS · Android</text>
+        </svg>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= TRIPS ================= -->
+<section class="band trip-band" id="trips" aria-labelledby="trips-title">
+  <div class="wrap">
+    <div class="trip-grid">
+      <div class="trip-copy">
+        <span class="eyebrow">Trips</span>
+        <h2 class="h2" id="trips-title">Where's my plane?</h2>
+        <p class="lede">Your airline app says "on time" right up until it doesn't. The plane you'll board is still in the air somewhere else, and that's the first place a delay shows. TailWatcher watches it for you.</p>
+        <ul class="trip-points">
+          <li><svg><use href="#i-check"/></svg><span><b>No key needed.</b> Text <code>inbound UA1234 N38473 dep 4:30pm</code> with the plane from your airline's "Where's my plane?" screen.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Or let it look things up.</b> With a free AeroDataBox key, <code>inbound UA1234 11/14</code> is enough. It finds your time and the assigned plane, and re-checks as the day gets closer.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Light on requests.</b> A trip booked a month ahead uses about 20 of the free plan's 400 monthly requests.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Never changes things behind your back.</b> If your flight is renumbered it suggests the new one; you confirm with <code>change</code>.</span></li>
+        </ul>
+      </div>
+
+      <div class="leg" aria-label="Example trip timeline">
+        <div class="leg-map" aria-hidden="true">
+          <svg viewBox="0 0 520 150" preserveAspectRatio="xMidYMid meet">
+            <path id="arc" d="M40 112 Q260 -6 480 112" fill="none" stroke="#2c4a75" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round"/>
+            <path d="M40 112 Q260 -6 480 112" fill="none" stroke="#ff8a3d" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="72 100"/>
+            <circle cx="40" cy="112" r="6" fill="#9cc8ff"/>
+            <circle cx="480" cy="112" r="6" fill="none" stroke="#ff8a3d" stroke-width="2.5"/>
+            <g transform="translate(372 52) rotate(28)"><use href="#i-plane" x="-14" y="-14" width="28" height="28" style="color:#eef3fa" transform="rotate(90)"/></g>
+            <text class="apt" x="40" y="146" text-anchor="middle">ORD</text>
+            <text class="apt" x="480" y="146" text-anchor="middle">IAD</text>
+            <text class="tiny" x="372" y="22" text-anchor="middle">N38473 · FL370 · 41 min out</text>
+          </svg>
+        </div>
+        <ol class="timeline">
+          <li class="tl"><time>08:05</time><div class="tl-card"><b>🧳 UA1234: your plane is on an earlier flight</b><span>N38473 is flying UAL412 DEN→ORD first, then on to IAD for your flight.</span></div></li>
+          <li class="tl"><time>10:42</time><div class="tl-card"><b>✈️ UA1234: your plane is on its way</b><span>N38473 is in the air as UAL587. Due at IAD around 11:35 AM. Your UA1234 departs 12:30 PM, 55 min after it lands.</span></div></li>
+          <li class="tl hot"><time>11:04</time><div class="tl-card"><b>⏳ UA1234: tight turnaround</b><span>N38473 is now due around 11:50 AM. Your UA1234 departs 12:30 PM, 40 min after it lands.</span></div></li>
+          <li class="tl done"><time>11:52</time><div class="tl-card"><b>🛬 UA1234: your plane landed</b><span>N38473 is on the ground at IAD. Your UA1234 departs 12:30 PM, 38 min after it lands.</span></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="extras">
+      <div class="extra"><h4>Round trips</h4><p>Both flights in one message. They're listed together, shared together, and cancelled together unless you add <code>only</code>.</p></div>
+      <div class="extra"><h4>Time zones handled</h4><p><code>dep 6pm from LAS</code> means 6pm in Las Vegas. Every airport's zone ships with the app.</p></div>
+      <div class="extra"><h4>Sharing that stays quiet</h4><p>Family get your departure and landing, not every inbound-plane update. It only follows your flight around its own departure.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEXT COMMANDS ================= -->
+<section class="band" id="commands" aria-labelledby="cmd-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Text commands</span>
+      <h2 class="h2" id="cmd-title">Just type it in</h2>
+      <p class="lede">Each person's ntfy topic doubles as a chat with TailWatcher. They can add, rename and remove their own planes from the message bar, and nobody else's list.</p>
+    </div>
+    <div class="cmd-grid">
+      <div class="chat" aria-label="Example ntfy conversation with TailWatcher">
+        <div class="chat-top"><svg><use href="#i-bell"/></svg><div><b>Alex</b><small>ntfy.sh/tw-alex-q7f3m9…</small></div></div>
+        <div class="chat-log" id="chat-log" aria-live="off">
+          <div class="msg me">add N731RG Club Cessna</div>
+          <div class="msg tw">✅ Added N731RG (Club Cessna). Watching 2 aircraft.</div>
+        </div>
+        <div class="chat-input"><div id="chat-type"></div><span class="send"><svg><use href="#i-send"/></svg></span></div>
+      </div>
+      <div style="min-width:0">
+        <table class="cmd-table">
+          <thead><tr><th scope="col">Send</th><th scope="col">Does</th></tr></thead>
+          <tbody>
+            <tr><td><code>N12345</code> or <code>UA1234</code></td><td>Watch a tail number or a flight number</td></tr>
+            <tr><td><code>add N12345 Vegas trip</code></td><td>Watch it with a nickname</td></tr>
+            <tr><td><code>UA1234 for 2 days</code></td><td>Stop automatically. Also <code>12h</code>, <code>until fri</code></td></tr>
+            <tr><td><code>list</code></td><td>Your list, what's airborne, time left</td></tr>
+            <tr><td><code>info N12345</code></td><td>What it is, who owns it, where it is now</td></tr>
+            <tr><td><code>inbound UA1234 11/14</code></td><td>Follow the plane flying in for your flight</td></tr>
+            <tr><td><code>share 1 Mom &amp; Dad</code></td><td>Send them your takeoff and landing</td></tr>
+            <tr><td><code>remove N12345</code></td><td>Stop watching</td></tr>
+          </tbody>
+        </table>
+        <p class="cmd-more">Send <code>help</code> for the full list, or read the <a href="docs.html#text-commands">text commands guide</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCREENS ================= -->
+<section class="band screens-band" id="screens" aria-labelledby="screens-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The dashboard</span>
+      <h2 class="h2" id="screens-title">Pick your terminal</h2>
+      <p class="lede">The Web UI shows every watcher, plane and trip in the house, recent alerts, and whether everything's healthy. Add and edit right on the page.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Dashboard theme">
+      <button type="button" role="tab" id="tab-modern" data-theme-tab="modern" aria-selected="true" aria-controls="shots">Modern</button>
+      <button type="button" role="tab" id="tab-board" data-theme-tab="board" aria-selected="false" aria-controls="shots">Board</button>
+    </div>
+    <div class="shots" id="shots" role="tabpanel" aria-labelledby="tab-modern">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><i></i><span>tailwatcher.local</span></div>
+        <img id="shot-desktop" src="assets/img/modern-desktop.webp" width="2560" height="1720" alt="TailWatcher dashboard in the Modern theme: trip cards with a progress bar from Scheduled to At the airport, and an activity feed of alerts" decoding="async">
+      </div>
+      <div class="shot-phone"><img id="shot-phone" src="assets/img/modern-phone.webp" width="780" height="1688" alt="The Modern theme on a phone" decoding="async"></div>
+    </div>
+    <p class="shot-caption"><span data-cap="modern">Modern: trip cards with a progress bar from Scheduled to At the airport, each person's planes with live status, and a feed of everything sent.</span><span data-cap="board" hidden>Board: the same data on an airport departures board. Split-flap tiles flip only the letters that changed since the last refresh.</span> Screenshots use sample data.</p>
+  </div>
+</section>
+
+<!-- ================= INSTALL ================= -->
+<section class="band" id="install" aria-labelledby="install-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Install</span>
+      <h2 class="h2" id="install-title">Pre-flight checklist</h2>
+      <p class="lede">TailWatcher is a StartOS 0.4 service. It's on its way to the Start9 community registry; until then you can build and sideload it.</p>
+    </div>
+    <div class="install-grid">
+      <ol class="checklist">
+        <li><span class="box">1</span><div><h3>Get the package</h3><p>Build the .s9pk from source on any Linux or macOS machine with Docker, Node.js and <a href="https://docs.start9.com/">start-cli</a>.</p>
+          <pre><code><span class="c"># clone and build tailwatcher_x86_64.s9pk</span>
+git clone https://github.com/RogerUp-Labs/tailwatcher
+cd tailwatcher
+make</code></pre></div></li>
+        <li><span class="box">2</span><div><h3>Sideload it</h3><p>Upload the .s9pk with StartOS's Sideload option, or run <code>make install</code> to send it to the server in <code>~/.startos/config.yaml</code>.</p></div></li>
+        <li><span class="box">3</span><div><h3>Open the Web UI</h3><p>Start TailWatcher, open its Web UI, add a watcher for each person and tap <b>Connect phone</b>.</p></div></li>
+        <li><span class="box">4</span><div><h3>Optional extras</h3><p>Paste a free AeroDataBox key in <b>⚙ Settings</b> for automatic trip lookups, or switch alerts to your own NTFY with <b>Set up NTFY for me</b>.</p></div></li>
+      </ol>
+      <aside class="needs" aria-labelledby="needs-title">
+        <h3 id="needs-title">Manifest <span>REQUIREMENTS</span></h3>
+        <ul>
+          <li><div>Start9 server<span>StartOS 0.4, x86_64</span></div><em class="req">Required</em></li>
+          <li><div>ntfy app on each phone<span>Free on iOS, Google Play and F-Droid</span></div><em class="req">Required</em></li>
+          <li><div>AeroDataBox key<span>Free RapidAPI Basic plan, 400 requests a month</span></div><em>Optional</em></li>
+          <li><div>NTFY on StartOS<span>To keep alerts off ntfy.sh</span></div><em>Optional</em></li>
+          <li><div>A public address<span>For invite links, e.g. via StartTunnel</span></div><em>Optional</em></li>
+        </ul>
+        <p class="store-note">Ready-made packages will appear on the <a href="https://github.com/RogerUp-Labs/tailwatcher/releases">GitHub releases</a> page and in the community registry.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="band" id="faq" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2" id="faq-title">Questions from the cabin</h2>
+    </div>
+    <div class="faq">
+      <div>
+        <details><summary>Is it really free?</summary><p>Yes. TailWatcher is MIT-licensed, the ADS-B feeds are free community projects, ntfy.sh is free, and AeroDataBox's Basic plan is free. There's nothing to subscribe to.</p></details>
+        <details><summary>Which planes can it follow?</summary><p>Anything broadcasting ADS-B that a volunteer receiver can hear: airliners, business jets, most private planes and many helicopters, worldwide. Coverage on the ground at small airports is thinner, so a takeoff there may arrive as "is airborne" a few minutes later.</p></details>
+        <details><summary>Do I need my own ntfy server?</summary><p>No. By default alerts go through the public ntfy.sh service, and each person's topic is a long random name. If you'd rather keep alerts on your own hardware, install NTFY on StartOS and tap <b>Set up NTFY for me</b> in Settings.</p></details>
+        <details><summary>Does it work on iPhone?</summary><p>Yes, with the free ntfy app from the App Store. Use ntfy.sh for instant iPhone alerts: a self-hosted NTFY can't use Apple's push service, so alerts may wait until the app is opened.</p></details>
+        <details><summary>What about planes hidden from FlightAware?</summary><p>The feeds TailWatcher uses are unfiltered, so planes in the FAA's LADD program still show up. Aircraft in the FAA's PIA privacy program broadcast a temporary address and can't be followed by tail number anywhere.</p></details>
+      </div>
+      <div>
+        <details><summary>Why StartOS?</summary><p>StartOS makes self-hosting a one-click affair, and a watcher that runs around the clock belongs on an always-on server, not a laptop. Your list of planes, trips and family members never leaves your house.</p></details>
+        <details><summary>Who can see our alerts and trips?</summary><p>Alerts reach only the phones subscribed to each person's topic. The dashboard is reachable on your home network and VPN, and you can turn on a password for it. Invite links expire and can be cancelled.</p></details>
+        <details><summary>What is AeroDataBox for?</summary><p>It's an optional flight-schedule API. With a key, <code>inbound UA1234 11/14</code> finds your departure time and the assigned plane by itself. Without one, you tell TailWatcher which plane it is, which your airline app usually shows.</p></details>
+        <details><summary>How often does it check?</summary><p>Every 60 seconds by default, with every watched plane in a single batched request to stay well within the feeds' limits. If one feed says "too many requests", TailWatcher uses the other.</p></details>
+        <details><summary>Can I run it without StartOS?</summary><p>The watcher is plain Python 3.12 with no dependencies, so it can run anywhere, but the packaging, settings and setup flow are built for StartOS. Contributions for other platforms are welcome.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPEN SOURCE ================= -->
+<section class="band" id="contribute" aria-labelledby="oss-title" style="padding-top:0">
+  <div class="wrap oss">
+    <div>
+      <span class="eyebrow">Open source</span>
+      <h2 class="h2" id="oss-title">Built in the open</h2>
+      <p class="lede">TailWatcher is MIT-licensed and made by RogerUp Labs. Bug reports, field reports from real flights and pull requests are all welcome.</p>
+      <ul class="stack-list" aria-label="Built with">
+        <li>Python 3.12, stdlib only</li><li>StartOS SDK</li><li>ntfy</li><li>ADS-B</li><li>One-file web UI, no CDN</li>
+      </ul>
+    </div>
+    <div class="oss-cards">
+      <a class="oss-card" href="https://github.com/RogerUp-Labs/tailwatcher"><svg><use href="#i-github"/></svg><b>Source</b><span>RogerUp-Labs/tailwatcher</span></a>
+      <a class="oss-card" href="https://github.com/RogerUp-Labs/tailwatcher/issues"><svg><use href="#i-bug"/></svg><b>Issues</b><span>Report a bug or ask for a feature</span></a>
+      <a class="oss-card" href="docs.html"><svg><use href="#i-book"/></svg><b>User guide</b><span>The same guide as the in-app Help</span></a>
+      <a class="oss-card" href="changelog.html"><svg><use href="#i-log"/></svg><b>Flight log</b><span>Every release, in plain language</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CALL ================= -->
+<section class="band final" aria-labelledby="final-title">
+  <div class="wrap">
+    <img class="final-mark" src="assets/logo.svg" alt="" width="300" height="300" loading="lazy">
+    <h2 id="final-title">Cleared for takeoff</h2>
+    <p class="lede">Install TailWatcher, add the people you fly with, and let the planes tell you when they're moving.</p>
+    <div class="cta-row">
+      <a class="btn btn-hot" href="#install"><svg><use href="#i-plane"/></svg>Install on StartOS</a>
+      <a class="btn btn-ghost" href="docs.html"><svg><use href="#i-book"/></svg>Read the guide</a>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="30" height="30">TailWatcher</a>
+      <small>MIT License · Made by <a href="https://rogeruplabs.com">RogerUp Labs</a> · <a href="mailto:hello@rogeruplabs.com">hello@rogeruplabs.com</a></small>
+    </div>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="changelog.html">Flight log</a>
+      <a href="https://github.com/RogerUp-Labs/tailwatcher">GitHub</a>
+      <a href="https://github.com/RogerUp-Labs/tailwatcher/blob/main/LICENSE">License</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
 </body>
 </html>

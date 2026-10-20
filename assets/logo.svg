@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0a1a33"/>
+      <stop offset="1" stop-color="#1f5fa8"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ffd2a8"/>
+      <stop offset="0.55" stop-color="#ff8a3d"/>
+      <stop offset="1" stop-color="#e2611a"/>
+    </radialGradient>
+    <clipPath id="tile"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="url(#sky)"/>
+    <!-- a T-tail jet seen from behind: fin and stabilizer form the T, the W sits in the fuselage -->
+    <g transform="translate(0 -33)">
+      <circle cx="256" cy="322" r="118" fill="#fff" fill-opacity="0.08"/>
+      <path d="M100 196 L256 154 L412 196" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M256 154 L256 300" stroke="#fff" stroke-width="34" stroke-linecap="round"/>
+      <path d="M150 262 L196 424 L256 300 L316 424 L362 262" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- rear-mounted engines, exhausts lit -->
+      <circle cx="110" cy="300" r="42" fill="#fff"/>
+      <circle cx="110" cy="300" r="27" fill="url(#glow)"/>
+      <circle cx="402" cy="300" r="42" fill="#fff"/>
+      <circle cx="402" cy="300" r="27" fill="url(#glow)"/>
+    </g>
+  </g>
+</svg>
