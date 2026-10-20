@@ -209,12 +209,12 @@
       <h3>Also on board</h3>
       <div class="feat-grid">
         <div class="feat"><div class="ic"><svg><use href="#i-loop"/></svg></div><div><h4>Round trips</h4><p>Enter the flight out and the flight home in one go: <code>inbound UA1234 11/14 return UA5678 11/21</code>.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-chain"/></svg></div><div><h4>Connecting flights <span class="tag-new">Soon</span></h4><p>Add a connection with <code>then</code> and hear how many minutes you'll have to make it.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-import"/></svg></div><div><h4>Import a trip <span class="tag-new">Soon</span></h4><p>Paste a booking confirmation, or drop in an .eml or .ics file, and the trip form fills itself in.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-chain"/></svg></div><div><h4>Connecting flights <span class="tag-new">New</span></h4><p>Add a connection with <code>then</code> and hear how many minutes you'll have to make it.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-import"/></svg></div><div><h4>Import a trip <span class="tag-new">New</span></h4><p>Paste a booking confirmation, or drop in an .eml or .ics file, and the trip form fills itself in.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-chat"/></svg></div><div><h4>Text commands</h4><p>Everyone manages their own list by typing in their ntfy topic: <code>N12345</code>, <code>list</code>, <code>remove</code>.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-search"/></svg></div><div><h4>Look up any plane</h4><p><code>info N12345</code> replies with the type, FAA owner city and state, engine, live position and a photo.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-board"/></svg></div><div><h4>Dashboard, two looks</h4><p>A web dashboard for the whole house, in a clean Modern theme or a split-flap departures Board.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><h4>Where is it now <span class="tag-new">Soon</span></h4><p>Each plane shows roughly where it is, like "40 nm NE of Denver, CO", or Parked once it goes quiet.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><h4>Where is it now <span class="tag-new">New</span></h4><p>Each plane shows roughly where it is, like "40 nm NE of Denver, CO", or Parked once it goes quiet.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-invite"/></svg></div><div><h4>Invite links</h4><p>Text someone a normal web link. It walks them through installing ntfy and subscribing in two taps.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-clock"/></svg></div><div><h4>Renumbered flights</h4><p>When an airline renumbers or cancels your flight, TailWatcher notices and suggests the likely new number.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-people"/></svg></div><div><h4>One app, whole household</h4><p>Each person gets their own watcher, alert list, landing setting and priority. A plane two people follow is checked once.</p></div></div>
@@ -407,7 +407,7 @@
       </div>
       <div class="shot-phone"><img id="shot-phone" src="assets/img/modern-phone.webp" width="780" height="1688" alt="The Modern theme on a phone" decoding="async"></div>
     </div>
-    <p class="shot-caption"><span data-cap="modern">Modern: trip cards with a progress bar from Scheduled to At the airport, each person's planes with live status, and a feed of everything sent.</span><span data-cap="board" hidden>Board: the same data on an airport departures board. Split-flap tiles flip only the letters that changed since the last refresh.</span> Screenshots use sample data.</p>
+    <p class="shot-caption"><span data-cap="modern">Modern: trip cards with a progress bar from Scheduled to At the airport, each person's planes with live status, and a feed of everything sent. It follows your device's light or dark setting.</span><span data-cap="board" hidden>Board: the same data on an airport departures board, always dark. Split-flap tiles flip only the letters that changed since the last refresh.</span> Screenshots use sample data.</p>
   </div>
 </section>
 
@@ -417,29 +417,31 @@
     <div class="sec-head">
       <span class="eyebrow">Install</span>
       <h2 class="h2" id="install-title">Pre-flight checklist</h2>
-      <p class="lede">TailWatcher is a StartOS 0.4 service. It's on its way to the Start9 community registry; until then you can build and sideload it.</p>
+      <p class="lede">TailWatcher is a StartOS 0.4 service. Download the latest package from GitHub and sideload it; a community registry listing is on its way.</p>
     </div>
     <div class="install-grid">
       <ol class="checklist">
-        <li><span class="box">1</span><div><h3>Get the package</h3><p>Build the .s9pk from source on any Linux or macOS machine with Docker, Node.js and <a href="https://docs.start9.com/">start-cli</a>.</p>
-          <pre><code><span class="c"># clone and build tailwatcher_x86_64.s9pk</span>
+        <li><span class="box">1</span><div><h3>Download the package</h3><p>Get the .s9pk for your server from the <a href="https://github.com/RogerUp-Labs/tailwatcher/releases/latest">latest release</a>. Most servers are x86_64; ARM servers take aarch64. Each release lists SHA256 checksums.</p>
+          <div class="dl-row"><a class="btn btn-hot" href="https://github.com/RogerUp-Labs/tailwatcher/releases/latest/download/tailwatcher_x86_64.s9pk"><svg><use href="#i-import"/></svg>x86_64</a><a class="btn btn-ghost" href="https://github.com/RogerUp-Labs/tailwatcher/releases/latest/download/tailwatcher_aarch64.s9pk"><svg><use href="#i-import"/></svg>aarch64 (ARM)</a></div></div></li>
+        <li><span class="box">2</span><div><h3>Sideload it</h3><p>In StartOS, use the Sideload option to upload the .s9pk. Updates work the same way: sideload the newer file.</p>
+          <p>Prefer to build it yourself? You need Docker, Node.js and <a href="https://docs.start9.com/">start-cli</a>:</p>
+          <pre><code><span class="c"># builds tailwatcher_x86_64.s9pk; make install sideloads it</span>
 git clone https://github.com/RogerUp-Labs/tailwatcher
 cd tailwatcher
 make</code></pre></div></li>
-        <li><span class="box">2</span><div><h3>Sideload it</h3><p>Upload the .s9pk with StartOS's Sideload option, or run <code>make install</code> to send it to the server in <code>~/.startos/config.yaml</code>.</p></div></li>
         <li><span class="box">3</span><div><h3>Open the Web UI</h3><p>Start TailWatcher, open its Web UI, add a watcher for each person and tap <b>Connect phone</b>.</p></div></li>
         <li><span class="box">4</span><div><h3>Optional extras</h3><p>Paste a free AeroDataBox key in <b>⚙ Settings</b> for automatic trip lookups, or switch alerts to your own NTFY with <b>Set up NTFY for me</b>.</p></div></li>
       </ol>
       <aside class="needs" aria-labelledby="needs-title">
         <h3 id="needs-title">Manifest <span>REQUIREMENTS</span></h3>
         <ul>
-          <li><div>Start9 server<span>StartOS 0.4, x86_64</span></div><em class="req">Required</em></li>
+          <li><div>Start9 server<span>StartOS 0.4, x86_64 or ARM</span></div><em class="req">Required</em></li>
           <li><div>ntfy app on each phone<span>Free on iOS, Google Play and F-Droid</span></div><em class="req">Required</em></li>
           <li><div>AeroDataBox key<span>Free RapidAPI Basic plan, 400 requests a month</span></div><em>Optional</em></li>
           <li><div>NTFY on StartOS<span>To keep alerts off ntfy.sh</span></div><em>Optional</em></li>
           <li><div>A public address<span>For invite links, e.g. via StartTunnel</span></div><em>Optional</em></li>
         </ul>
-        <p class="store-note">Ready-made packages will appear on the <a href="https://github.com/RogerUp-Labs/tailwatcher/releases">GitHub releases</a> page and in the community registry.</p>
+        <p class="store-note">Every release, with notes and checksums, is on the <a href="https://github.com/RogerUp-Labs/tailwatcher/releases">GitHub releases</a> page.</p>
       </aside>
     </div>
   </div>
