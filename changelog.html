@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TailWatcher Flight Log</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Every TailWatcher release, newest first: round trips, sharing, the Board theme, invite links and more.">
+<meta name="description" content="Every TailWatcher release, newest first: family accounts, Docker, round trips, sharing, the Board theme and more.">
 <meta name="theme-color" content="#061024">
 
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://tailwatcher.org/changelog.html">
 <meta property="og:title" content="TailWatcher Flight Log">
-<meta property="og:description" content="Every TailWatcher release, newest first: round trips, sharing, the Board theme, invite links and more.">
+<meta property="og:description" content="Every TailWatcher release, newest first: family accounts, Docker, round trips, sharing, the Board theme and more.">
 <meta property="og:image" content="https://tailwatcher.org/assets/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +56,7 @@
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="./#features">Features</a>
       <a href="./#trips">Trips</a>
+      <a href="./#family">Family</a>
       <a href="./#screens">Screens</a>
       <a href="./#install">Install</a>
       <a href="docs.html">Docs</a>
@@ -76,11 +77,77 @@
 </section>
 <div class="wrap log">
   <ol class="log-list" reversed>
+  <li class="log-row" id="v0.23.0">
+    <span class="flaps" aria-label="0.23.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">3</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 22</span>
+    <div class="body"><h2>Sign-up links and forgot password</h2><p>Family accounts, finished: admins can make a sign-up link on the People page and text it to someone new. They open it, pick their own username and password, get a watcher of their own and are walked through getting alerts on their phone. Each link works once and expires. Forgot your password? &quot;Forgot your password?&quot; on the sign-in page sends a 6-digit code to your alerts in the ntfy app; type it with a new password, no admin needed.</p></div>
+    <div class="st"><span class="flaps" aria-label="CURRENT"><span class="flap g" aria-hidden="true">C</span><span class="flap g" aria-hidden="true">U</span><span class="flap g" aria-hidden="true">R</span><span class="flap g" aria-hidden="true">R</span><span class="flap g" aria-hidden="true">E</span><span class="flap g" aria-hidden="true">N</span><span class="flap g" aria-hidden="true">T</span></span></div>
+  </li>
+  <li class="log-row" id="v0.22.1">
+    <span class="flaps" aria-label="0.22.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span></span>
+    <span class="when">OCT 22</span>
+    <div class="body"><h2>Shorter Activity on phones</h2><p>Shorter Activity list on phones: the Web UI (and the home screen app) now shows the 8 newest entries, with &quot;Show more&quot; to load more and &quot;Show less&quot; to fold it back, so Activity no longer takes over the page. Computers keep the scrolling list as before.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.22.0">
+    <span class="flaps" aria-label="0.22.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 22</span>
+    <div class="body"><h2>Family accounts</h2><p>Family accounts: give each person their own login to the Web UI, so they see only their own watchers and trips (trips are the private part). People can still share a trip with each other: it shows up read-only under &quot;Shared with me&quot; on their dashboard, with where the flight and the plane flying in for it are, and &quot;Stop following&quot; takes them off it. Admins add people and move watchers between them on the new People page, and only admins see Settings; they never see anyone else&#x27;s trips. Turn it on in Settings → Signing in to this page (new installs choose at first setup); nothing changes until you do. Also new: each watcher can have their own time zone for alerts, replies and &quot;until fri&quot;, and shared-trip alerts arrive in the recipient&#x27;s time zone. Signing in now uses a sign-in page instead of the browser&#x27;s password prompt. A locked-out admin uses Actions → Reset Web UI Password.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.21.1">
+    <span class="flaps" aria-label="0.21.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span></span>
+    <span class="when">OCT 22</span>
+    <div class="body"><h2>Clearer help reply</h2><p>Clearer &quot;help&quot; reply: the commands you can text TailWatcher are now grouped under headings, with trips first (your trips, changing a trip, sharing a trip) and watching a plane or flight after. The Text commands table in Help follows the same order.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.21.0">
+    <span class="flaps" aria-label="0.21.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 22</span>
+    <div class="body"><h2>Separate topic for plane alerts</h2><p>Trips come first: a watcher can now send plane-spotting alerts (the tail and flight numbers they watch) to a separate Planes topic, so their main topic carries only trips, shared trips and replies. Turn it on with &quot;Separate topic for plane alerts&quot; when editing a watcher in the Web UI, then subscribe with the second link in Connect phone. Text commands work in either topic. Nothing changes until you turn it on.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.20.5">
+    <span class="flaps" aria-label="0.20.5"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">5</span></span>
+    <span class="when">OCT 21</span>
+    <div class="body"><h2>Friendly subscription names</h2><p>Connect phone links and invite links now give the subscription a friendly name in the ntfy Android app, like &quot;TailWatcher · Dad&quot;, instead of the long random topic. It applies when someone subscribes; anyone already subscribed can rename it in the ntfy app (Subscription settings → Display name). The iPhone ntfy app has no display names, so there it still shows the server and topic; Help and the invite page now say so.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.20.4">
+    <span class="flaps" aria-label="0.20.4"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">4</span></span>
+    <span class="when">OCT 21</span>
+    <div class="body"><h2>Phone certificate help</h2><p>Help now explains the &quot;Trust anchor for certification path not found&quot; error some phones get in the ntfy app with this server&#x27;s NTFY: a Start9 signs its addresses, including a StartTunnel public IP, with its own root certificate, which phones only trust once it is installed. The fix for people outside your household is a public domain with a Let&#x27;s Encrypt certificate through StartTunnel; for your own phones, installing the root certificate also works. Connect phone and invite pages now point to these steps, and once NTFY or TailWatcher has a public domain, Connect phone links and invites use it instead of a public IP.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.20.3">
+    <span class="flaps" aria-label="0.20.3"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">3</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Easier Add trip form</h2><p>Easier Add trip form: the return flight is tucked under a &quot;Return flight&quot; section you open when you need it, and connecting flights are added one at a time with &quot;+ Add connection&quot; (and &quot;+ Add return connection&quot;), as many as your trip has, up to 8 flights each way. Import fills in every connection it finds, and Edit can add several at once.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.20.2">
+    <span class="flaps" aria-label="0.20.2"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">2</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Full-page Help</h2><p>Help is now a full page instead of a small pop-up: a list of topics down the side (under Contents on a phone), search, and an Open in new tab link. The browser&#x27;s Back button closes it, and a Help address like …/#help/importing-a-trip opens straight to that topic, so you can bookmark or send it.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.19.1">
+    <span class="flaps" aria-label="0.19.1"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">9</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Clearer ntfy permission message</h2><p>Fixed a misleading &quot;can&#x27;t read topic (HTTP 403)&quot; message for new watchers on this server&#x27;s NTFY: it told you to grant access on tailwatcher*, but watcher topics now start with tw-. The message now names the right permission and points to &quot;Set up NTFY for me&quot; in ⚙ Settings, which now also covers topics made by older versions.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
+  <li class="log-row" id="v0.19.0">
+    <span class="flaps" aria-label="0.19.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">9</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
+    <span class="when">OCT 20</span>
+    <div class="body"><h2>Run it with Docker</h2><p>TailWatcher can now also run without a Start9, as an ordinary Docker container on a Synology, Unraid or TrueNAS NAS or any computer with Docker, with alerts through ntfy.sh or an ntfy server you run yourself. See Running without a Start9 in the instructions. Nothing changes on StartOS, apart from a few hints that now point at Settings in the Web UI.</p></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
+  </li>
   <li class="log-row" id="v0.18.0">
     <span class="flaps" aria-label="0.18.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">8</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
     <span class="when">OCT 20</span>
     <div class="body"><h2>Import a trip</h2><p>Tap Import next to + Add trip and paste your booking confirmation, or choose a saved email (.eml) or calendar file (.ics). TailWatcher finds the flights, connections and flight home and fills in the Add trip form for you to check. It reads the hidden flight details in airline confirmation emails, calendar events from TripIt or Kayak, and plain text, and uses none of your AeroDataBox requests.</p></div>
-    <div class="st"><span class="flaps" aria-label="CURRENT"><span class="flap g" aria-hidden="true">C</span><span class="flap g" aria-hidden="true">U</span><span class="flap g" aria-hidden="true">R</span><span class="flap g" aria-hidden="true">R</span><span class="flap g" aria-hidden="true">E</span><span class="flap g" aria-hidden="true">N</span><span class="flap g" aria-hidden="true">T</span></span></div>
+    <div class="st"><span class="flaps" aria-label="LANDED"><span class="flap m" aria-hidden="true">L</span><span class="flap m" aria-hidden="true">A</span><span class="flap m" aria-hidden="true">N</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">E</span><span class="flap m" aria-hidden="true">D</span><span class="flap m" aria-hidden="true">&nbsp;</span></span></div>
   </li>
   <li class="log-row" id="v0.17.0">
     <span class="flaps" aria-label="0.17.0"><span class="flap y" aria-hidden="true">0</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">1</span><span class="flap y" aria-hidden="true">7</span><span class="flap y" aria-hidden="true">.</span><span class="flap y" aria-hidden="true">0</span></span>
