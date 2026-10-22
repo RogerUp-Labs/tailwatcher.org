@@ -398,6 +398,9 @@ p { margin: 0; }
 .dl-row .btn { min-height: 44px; font-size: 16px; padding: 0 18px; }
 .checklist pre .c { color: var(--faint); }
 .checklist pre code { white-space: pre; background: none; border: 0; padding: 0; font-size: inherit; color: inherit; }
+.docker-alt { margin-top: clamp(40px, 5vw, 64px); max-width: 820px; }
+.docker-title { font: 700 clamp(26px, 3vw, 34px)/1.05 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.docker-alt > .lede { margin: 10px 0 20px; }
 .needs { border-radius: 18px; padding: 24px; background: var(--paper); color: var(--paper-ink); }
 .needs h3 { font: 700 22px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .needs h3 span { font: 600 11px/1 var(--mono); letter-spacing: .12em; color: var(--paper-muted); }

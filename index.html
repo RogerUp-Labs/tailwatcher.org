@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TailWatcher</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="TailWatcher is a free, open-source StartOS app that sends a phone alert the moment a plane or flight you follow takes off, and tells you when the plane flying in for your trip is running late.">
+<meta name="description" content="TailWatcher is a free, open-source, self-hosted app for StartOS and Docker that keeps your family posted when you travel: departure and landing alerts, a heads-up when the plane flying in for your trip is running late, and takeoff alerts for any plane you follow.">
 <meta name="theme-color" content="#061024">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://tailwatcher.org/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TailWatcher: takeoff alerts for the planes you follow">
-<meta property="og:description" content="Free, open-source and self-hosted on StartOS. Watch tail numbers and flights on free ADS-B feeds and get ntfy alerts on takeoff and landing.">
+<meta property="og:title" content="TailWatcher: travel updates for your family, from your own server">
+<meta property="og:description" content="Free, open-source and self-hosted on StartOS or Docker. Follow your trips and the planes you care about on free ADS-B feeds, share them with family, and get ntfy alerts on takeoff and landing.">
 <meta property="og:url" content="https://tailwatcher.org/">
 <meta property="og:image" content="https://tailwatcher.org/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -58,6 +58,7 @@
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="#features">Features</a>
       <a href="#trips">Trips</a>
+      <a href="#family">Family</a>
       <a href="#screens">Screens</a>
       <a href="#install">Install</a>
       <a href="docs.html">Docs</a>
@@ -92,15 +93,15 @@
           </g>
         </g>
       </svg>
-      <span class="eyebrow">Free &amp; open source · for StartOS</span>
+      <span class="eyebrow">Free &amp; open source · for StartOS and Docker</span>
       <h1 id="hero-title" style="margin-top:16px">Know the moment they're <span class="hot">wheels up.</span></h1>
-      <p class="lede">TailWatcher follows the planes and flights your household cares about on free, public ADS-B data, and pings everyone's phone through the ntfy app the moment one takes off. It also keeps an eye on the plane flying in for your next trip, so you hear it's running late before the gate agent tells you.</p>
+      <p class="lede">TailWatcher keeps your family posted when you travel. It watches the plane flying in for your next trip, so you hear it's running late before the gate agent tells you, and pings everyone's phone through the free ntfy app when your flight takes off and lands. It follows any plane or flight you care about the same way, on free, public ADS-B data.</p>
       <div class="cta-row">
         <a class="btn btn-hot" href="#install"><svg><use href="#i-plane"/></svg>Install on StartOS</a>
         <a class="btn btn-ghost" href="https://github.com/RogerUp-Labs/tailwatcher"><svg><use href="#i-github"/></svg>View the source</a>
       </div>
       <ul class="hero-facts" aria-label="At a glance">
-        <li>MIT licensed</li><li>No accounts</li><li>No subscription</li><li>Runs on your own server</li>
+        <li>MIT licensed</li><li>No cloud sign-up</li><li>No subscription</li><li>Runs on your own server</li>
       </ul>
     </div>
 
@@ -170,7 +171,7 @@
     <div class="sec-head">
       <span class="eyebrow">Features</span>
       <h2 class="h2" id="features-title">Everything on board</h2>
-      <p class="lede">TailWatcher started as "tell me when Dad's plane takes off". It now handles the whole trip, for everyone in the house, from one small app on your Start9.</p>
+      <p class="lede">TailWatcher started as "tell me when Dad's plane takes off". It now handles the whole trip, for everyone in the family, from one small app on your own server.</p>
     </div>
 
     <div class="passes">
@@ -199,7 +200,7 @@
         <div class="pass-body">
           <div class="route"><div class="code">YOU<small>flying</small></div><div class="path"><svg><use href="#i-plane"/></svg></div><div class="code">FAM<small>notified</small></div></div>
           <h3>Family in the loop</h3>
-          <p>Share a trip with <code>share 1 Mom &amp; Dad</code> and they get one note, then your departure and landing on the day. No app to learn: they tap one invite link to subscribe.</p>
+          <p>Tick their names under Share with, or text <code>share 1 Mom &amp; Dad</code>. They get one note, then your departure and landing on the day. With family accounts it's on their dashboard too.</p>
         </div>
         <div class="pass-stub"><div>Shared<b>2 people</b></div><div>Legs<b>Out + back</b></div><div class="hot">Alert<b>Landed</b></div></div>
       </article>
@@ -209,17 +210,18 @@
       <h3>Also on board</h3>
       <div class="feat-grid">
         <div class="feat"><div class="ic"><svg><use href="#i-loop"/></svg></div><div><h4>Round trips</h4><p>Enter the flight out and the flight home in one go: <code>inbound UA1234 11/14 return UA5678 11/21</code>.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-chain"/></svg></div><div><h4>Connecting flights <span class="tag-new">New</span></h4><p>Add a connection with <code>then</code> and hear how many minutes you'll have to make it.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-import"/></svg></div><div><h4>Import a trip <span class="tag-new">New</span></h4><p>Paste a booking confirmation, or drop in an .eml or .ics file, and the trip form fills itself in.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-chain"/></svg></div><div><h4>Connecting flights</h4><p>Add a connection with <code>then</code> and hear how many minutes you'll have to make it.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-import"/></svg></div><div><h4>Import a trip</h4><p>Paste a booking confirmation, or drop in an .eml or .ics file, and the trip form fills itself in.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-chat"/></svg></div><div><h4>Text commands</h4><p>Everyone manages their own list by typing in their ntfy topic: <code>N12345</code>, <code>list</code>, <code>remove</code>.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-search"/></svg></div><div><h4>Look up any plane</h4><p><code>info N12345</code> replies with the type, FAA owner city and state, engine, live position and a photo.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-board"/></svg></div><div><h4>Dashboard, two looks</h4><p>A web dashboard for the whole house, in a clean Modern theme or a split-flap departures Board.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><h4>Where is it now <span class="tag-new">New</span></h4><p>Each plane shows roughly where it is, like "40 nm NE of Denver, CO", or Parked once it goes quiet.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><h4>Where is it now</h4><p>Each plane shows roughly where it is, like "40 nm NE of Denver, CO", or Parked once it goes quiet.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-invite"/></svg></div><div><h4>Invite links</h4><p>Text someone a normal web link. It walks them through installing ntfy and subscribing in two taps.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-clock"/></svg></div><div><h4>Renumbered flights</h4><p>When an airline renumbers or cancels your flight, TailWatcher notices and suggests the likely new number.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-people"/></svg></div><div><h4>One app, whole household</h4><p>Each person gets their own watcher, alert list, landing setting and priority. A plane two people follow is checked once.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-people"/></svg></div><div><h4>Family accounts <span class="tag-new">New</span></h4><p>Optional logins so each person has a private dashboard, shares trips with the others, and resets a forgotten password with a code in ntfy.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-bell"/></svg></div><div><h4>Planes in their own topic <span class="tag-new">New</span></h4><p>Plane-spotters can send tail and flight alerts to a separate ntfy topic, so the main one stays about trips.</p></div></div>
         <div class="feat"><div class="ic"><svg><use href="#i-antenna"/></svg></div><div><h4>Free, unfiltered ADS-B</h4><p>Community feeds adsb.fi and adsb.lol, polled in one batched request per cycle, with automatic fallback.</p></div></div>
-        <div class="feat"><div class="ic"><svg><use href="#i-server"/></svg></div><div><h4>Your server, your alerts</h4><p>Use public ntfy.sh with zero setup, or keep every alert on your own hardware with StartOS's NTFY.</p></div></div>
+        <div class="feat"><div class="ic"><svg><use href="#i-server"/></svg></div><div><h4>Start9 or Docker <span class="tag-new">New</span></h4><p>Runs on StartOS, or as a Docker container on a Synology, Unraid or TrueNAS NAS. Alerts use ntfy.sh with zero setup, or your own ntfy.</p></div></div>
       </div>
     </div>
   </div>
@@ -236,11 +238,11 @@
     <ol class="plan">
       <li>
         <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#0b1d3a" stroke="#9cc8ff" stroke-width="2"/></svg><b>1</b></div>
-        <div><span class="ident">WPT INSTL</span><h3>Install on StartOS</h3><p>Add TailWatcher to your Start9 server. It needs nothing else: no NTFY package, account or token.</p></div>
+        <div><span class="ident">WPT INSTL</span><h3>Install it</h3><p>Add TailWatcher to your Start9 server, or start it with Docker on a NAS. It needs nothing else: no NTFY server, account or token.</p></div>
       </li>
       <li>
         <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#0b1d3a" stroke="#9cc8ff" stroke-width="2"/></svg><b>2</b></div>
-        <div><span class="ident">WPT WATCH</span><h3>Add a watcher</h3><p>Open the dashboard and tap <b>+ Add watcher</b> for each person who wants alerts. A name is all it needs.</p></div>
+        <div><span class="ident">WPT WATCH</span><h3>Add your people</h3><p>Tap <b>+ Add watcher</b> for each person who wants alerts (a name is all it needs), or turn on family accounts and text them a sign-up link.</p></div>
       </li>
       <li>
         <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#0b1d3a" stroke="#9cc8ff" stroke-width="2"/></svg><b>3</b></div>
@@ -248,7 +250,7 @@
       </li>
       <li>
         <div class="wpt"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 56 30 30 56 4 30z" fill="#ff8a3d" stroke="#ffd2a8" stroke-width="2"/></svg><b>4</b></div>
-        <div><span class="ident">WPT WHEELS</span><h3>Wheels up</h3><p>Add a tail or flight number, from the dashboard or by texting it. The next takeoff lands on their lock screen.</p></div>
+        <div><span class="ident">WPT WHEELS</span><h3>Wheels up</h3><p>Add your next trip, or a tail or flight number, from the dashboard or by texting it. The next takeoff lands on their lock screen.</p></div>
       </li>
     </ol>
 
@@ -351,6 +353,41 @@
   </div>
 </section>
 
+<!-- ================= FAMILY ACCOUNTS ================= -->
+<section class="band" id="family" aria-labelledby="family-title">
+  <div class="wrap">
+    <div class="trip-grid">
+      <div class="trip-copy">
+        <span class="eyebrow">Family accounts <span class="tag-new">New</span></span>
+        <h2 class="h2" id="family-title">A dashboard for each of you</h2>
+        <p class="lede">Turn on family accounts and everyone signs in to their own TailWatcher: their trips, their planes, their alerts. One server for the whole family, and nobody sees where you're flying unless you share it.</p>
+        <ul class="trip-points">
+          <li><svg><use href="#i-check"/></svg><span><b>Trips stay private.</b> Each person sees only their own watchers and trips. Admins add people and reset passwords, but never see anyone else's trips.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Share a trip with a tap.</b> Tick a name under <b>Share with</b> and the trip appears under <b>Shared with me</b> on their dashboard, with your flight and where the plane flying in for it is. They get your departure and landing on the day.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Sign-up links.</b> Text someone a link. They pick their own username and password, get a watcher of their own, and are walked through getting alerts on their phone. Each link works once and expires.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Forgot your password?</b> No email needed: TailWatcher sends a 6-digit code to your alerts in the ntfy app. Type it with a new password and you're back in.</span></li>
+        </ul>
+      </div>
+
+      <div class="leg" aria-label="Example: adding a family member and sharing a trip">
+        <ol class="timeline">
+          <li class="tl"><time>09:12</time><div class="tl-card"><b>👥 Sign-up link for Grandma</b><span>Made on the People page and sent by text. It works once and expires in 7 days.</span></div></li>
+          <li class="tl"><time>09:20</time><div class="tl-card"><b>✅ Grandma signed up</b><span>She picked her own password, got her own watcher and connected her phone to the ntfy app.</span></div></li>
+          <li class="tl hot"><time>14:05</time><div class="tl-card"><b>📣 Alex shared a flight with you</b><span>UA1234, IAD → ORD, Friday 12:30 PM. It's on Grandma's dashboard under Shared with me.</span></div></li>
+          <li class="tl done"><time>15:48</time><div class="tl-card"><b>🛬 Alex landed at ORD</b><span>Sent in Grandma's own time zone, as every shared-trip alert is.</span></div></li>
+          <li class="tl"><time>19:30</time><div class="tl-card"><b>🔑 TailWatcher password reset</b><span>Your code is 482913. Type it on the sign-in page with a new password within 10 minutes.</span></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="extras">
+      <div class="extra"><h4>Off until you want it</h4><p>Most homes don't need logins. Pick no sign-in, one shared password, or family accounts at first setup, and change it any time in <b>⚙ Settings</b>.</p></div>
+      <div class="extra"><h4>Their own time zone</h4><p>Each person's alerts, replies and <code>until fri</code> use their own zone, so Grandma in Phoenix and you in Boston both read local times.</p></div>
+      <div class="extra"><h4>Look after someone</h4><p>One login can run several watchers, so a parent can keep a child's or grandparent's trips and alerts under their own account.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= TEXT COMMANDS ================= -->
 <section class="band" id="commands" aria-labelledby="cmd-title">
   <div class="wrap">
@@ -394,7 +431,7 @@
     <div class="sec-head">
       <span class="eyebrow">The dashboard</span>
       <h2 class="h2" id="screens-title">Pick your terminal</h2>
-      <p class="lede">The Web UI shows every watcher, plane and trip in the house, recent alerts, and whether everything's healthy. Add and edit right on the page.</p>
+      <p class="lede">The Web UI shows your trips, the trips others share with you, each person's planes, recent alerts, and whether everything's healthy. Add and edit right on the page.</p>
     </div>
     <div class="tabs" role="tablist" aria-label="Dashboard theme">
       <button type="button" role="tab" id="tab-modern" data-theme-tab="modern" aria-selected="true" aria-controls="shots">Modern</button>
@@ -417,7 +454,7 @@
     <div class="sec-head">
       <span class="eyebrow">Install</span>
       <h2 class="h2" id="install-title">Pre-flight checklist</h2>
-      <p class="lede">TailWatcher is a StartOS 0.4 service. Download the latest package from GitHub and sideload it; a community registry listing is on its way.</p>
+      <p class="lede">TailWatcher is a StartOS 0.4 service: download the latest package from GitHub and sideload it (a community registry listing is on its way). No Start9? The same app runs in Docker, below.</p>
     </div>
     <div class="install-grid">
       <ol class="checklist">
@@ -429,20 +466,33 @@
 git clone https://github.com/RogerUp-Labs/tailwatcher
 cd tailwatcher
 make</code></pre></div></li>
-        <li><span class="box">3</span><div><h3>Open the Web UI</h3><p>Start TailWatcher, open its Web UI, add a watcher for each person and tap <b>Connect phone</b>.</p></div></li>
+        <li><span class="box">3</span><div><h3>Open the Web UI</h3><p>Start TailWatcher and open its Web UI. The first time, choose how people sign in: no sign-in, one shared password, or family accounts. Then add your people and tap <b>Connect phone</b>.</p></div></li>
         <li><span class="box">4</span><div><h3>Optional extras</h3><p>Paste a free AeroDataBox key in <b>⚙ Settings</b> for automatic trip lookups, or switch alerts to your own NTFY with <b>Set up NTFY for me</b>.</p></div></li>
       </ol>
       <aside class="needs" aria-labelledby="needs-title">
         <h3 id="needs-title">Manifest <span>REQUIREMENTS</span></h3>
         <ul>
-          <li><div>Start9 server<span>StartOS 0.4, x86_64 or ARM</span></div><em class="req">Required</em></li>
+          <li><div>Start9 server or Docker<span>StartOS 0.4, or any Docker host, x86_64 or ARM</span></div><em class="req">Required</em></li>
           <li><div>ntfy app on each phone<span>Free on iOS, Google Play and F-Droid</span></div><em class="req">Required</em></li>
           <li><div>AeroDataBox key<span>Free RapidAPI Basic plan, 400 requests a month</span></div><em>Optional</em></li>
-          <li><div>NTFY on StartOS<span>To keep alerts off ntfy.sh</span></div><em>Optional</em></li>
-          <li><div>A public address<span>For invite links, e.g. via StartTunnel</span></div><em>Optional</em></li>
+          <li><div>Your own ntfy<span>To keep alerts off ntfy.sh</span></div><em>Optional</em></li>
+          <li><div>A public address<span>For invite and sign-up links, e.g. via StartTunnel</span></div><em>Optional</em></li>
         </ul>
         <p class="store-note">Every release, with notes and checksums, is on the <a href="https://github.com/RogerUp-Labs/tailwatcher/releases">GitHub releases</a> page.</p>
       </aside>
+    </div>
+
+    <div class="docker-alt" id="docker">
+      <h3 class="docker-title">No Start9? Use Docker <span class="tag-new">New</span></h3>
+      <p class="lede">The same app, dashboard and alerts as an ordinary Docker container: on a Synology, Unraid or TrueNAS NAS, a Raspberry Pi, or any computer with Docker. Images for x86_64 and ARM are on GitHub's container registry.</p>
+      <ol class="checklist">
+        <li><span class="box">1</span><div><h3>Get docker-compose.yml</h3><p>Download it from the <a href="https://github.com/RogerUp-Labs/tailwatcher/tree/main/docker">docker folder</a> of the repository. Every setting is explained inside.</p></div></li>
+        <li><span class="box">2</span><div><h3>Start it</h3><p>On a Synology: <b>Container Manager → Project → Create</b> and upload the file. Anywhere else:</p>
+          <pre><code><span class="c"># in the folder with docker-compose.yml</span>
+docker compose up -d
+docker compose logs tailwatcher   <span class="c"># prints the dashboard password</span></code></pre></div></li>
+        <li><span class="box">3</span><div><h3>Open the dashboard</h3><p>Go to <code>http://&lt;your NAS&gt;:8080</code>, sign in with the password from the log, and carry on as above. Your data lives in the <code>data</code> folder next to the file, so back that up. <a href="docs.html#running-without-a-start9">More in the guide</a>.</p></div></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -463,11 +513,12 @@ make</code></pre></div></li>
         <details><summary>What about planes hidden from FlightAware?</summary><p>The feeds TailWatcher uses are unfiltered, so planes in the FAA's LADD program still show up. Aircraft in the FAA's PIA privacy program broadcast a temporary address and can't be followed by tail number anywhere.</p></details>
       </div>
       <div>
-        <details><summary>Why StartOS?</summary><p>StartOS makes self-hosting a one-click affair, and a watcher that runs around the clock belongs on an always-on server, not a laptop. Your list of planes, trips and family members never leaves your house.</p></details>
-        <details><summary>Who can see our alerts and trips?</summary><p>Alerts reach only the phones subscribed to each person's topic. The dashboard is reachable on your home network and VPN, and you can turn on a password for it. Invite links expire and can be cancelled.</p></details>
+        <details><summary>Why self-hosted?</summary><p>A watcher that runs around the clock belongs on an always-on server, not a laptop, and StartOS makes that a one-click affair (a NAS with Docker works too). Your trips, planes and family members never leave your house.</p></details>
+        <details><summary>Who can see our alerts and trips?</summary><p>Alerts reach only the phones subscribed to each person's topic. The dashboard can have no sign-in, one shared password, or family accounts, where each person sees only their own trips and planes plus the trips shared with them. Admins never see anyone else's trips, though whoever runs the server can read its files. Invite and sign-up links expire and can be cancelled.</p></details>
+        <details><summary>What if someone forgets their password?</summary><p>They tap <b>Forgot your password?</b> on the sign-in page and TailWatcher sends a 6-digit code to their alerts in the ntfy app. No email address is involved. An admin can also set a new one on the People page, and the server owner can always reset the admin's.</p></details>
         <details><summary>What is AeroDataBox for?</summary><p>It's an optional flight-schedule API. With a key, <code>inbound UA1234 11/14</code> finds your departure time and the assigned plane by itself. Without one, you tell TailWatcher which plane it is, which your airline app usually shows.</p></details>
         <details><summary>How often does it check?</summary><p>Every 60 seconds by default, with every watched plane in a single batched request to stay well within the feeds' limits. If one feed says "too many requests", TailWatcher uses the other.</p></details>
-        <details><summary>Can I run it without StartOS?</summary><p>The watcher is plain Python 3.12 with no dependencies, so it can run anywhere, but the packaging, settings and setup flow are built for StartOS. Contributions for other platforms are welcome.</p></details>
+        <details><summary>Can I run it without StartOS?</summary><p>Yes. The same app ships as a Docker image, <code>ghcr.io/rogerup-labs/tailwatcher</code>, with a ready docker-compose.yml for Synology, Unraid, TrueNAS or any Docker host. See <a href="docs.html#running-without-a-start9">Running without a Start9</a>.</p></details>
       </div>
     </div>
   </div>
@@ -481,7 +532,7 @@ make</code></pre></div></li>
       <h2 class="h2" id="oss-title">Built in the open</h2>
       <p class="lede">TailWatcher is MIT-licensed and made by RogerUp Labs. Bug reports, field reports from real flights and pull requests are all welcome.</p>
       <ul class="stack-list" aria-label="Built with">
-        <li>Python 3.12, stdlib only</li><li>StartOS SDK</li><li>ntfy</li><li>ADS-B</li><li>One-file web UI, no CDN</li>
+        <li>Python 3.12, stdlib only</li><li>StartOS SDK</li><li>Docker</li><li>ntfy</li><li>ADS-B</li><li>One-file web UI, no CDN</li>
       </ul>
     </div>
     <div class="oss-cards">
@@ -498,7 +549,7 @@ make</code></pre></div></li>
   <div class="wrap">
     <img class="final-mark" src="assets/logo.svg" alt="" width="300" height="300" loading="lazy">
     <h2 id="final-title">Cleared for takeoff</h2>
-    <p class="lede">Install TailWatcher, add the people you fly with, and let the planes tell you when they're moving.</p>
+    <p class="lede">Install TailWatcher, add the people you travel with, and let the planes tell you when they're moving.</p>
     <div class="cta-row">
       <a class="btn btn-hot" href="#install"><svg><use href="#i-plane"/></svg>Install on StartOS</a>
       <a class="btn btn-ghost" href="docs.html"><svg><use href="#i-book"/></svg>Read the guide</a>
