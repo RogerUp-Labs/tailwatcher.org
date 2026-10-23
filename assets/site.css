@@ -329,7 +329,9 @@ p { margin: 0; }
 .tl.done .tl-card { border-color: rgba(111, 227, 155, .4); background: rgba(111, 227, 155, .07); }
 
 .extras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: clamp(48px, 6vw, 72px); }
-@media (max-width: 880px) { .extras { grid-template-columns: 1fr; } }
+.extras.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .extras.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 880px) { .extras, .extras.four { grid-template-columns: 1fr; } }
 .extra { border-top: 2px solid var(--glow); padding-top: 16px; }
 .extra h4 { margin: 0 0 6px; font: 700 22px/1.1 var(--display); text-transform: uppercase; letter-spacing: .03em; }
 .extra p { color: var(--muted); font-size: 16px; }
